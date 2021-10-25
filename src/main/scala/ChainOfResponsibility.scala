@@ -22,7 +22,7 @@ trait Chain {
 
 class Addition(val chain: Chain) extends Chain {
   override def calculate(calcExpression: CalcExpression): Unit = {
-    if (calcExpression.operator.==('+')) {
+    if (calcExpression.operator == '+') {
       println(calcExpression.numberOne + " + " + calcExpression.numberTwo
         + " = " + (calcExpression.numberOne + calcExpression.numberTwo))
     } else {
@@ -33,7 +33,7 @@ class Addition(val chain: Chain) extends Chain {
 
 class Subtraction(val chain: Chain) extends Chain {
   override def calculate(calcExpression: CalcExpression): Unit = {
-    if (calcExpression.operator.==('-')) {
+    if (calcExpression.operator == '-') {
       println(calcExpression.numberOne + " - " + calcExpression.numberTwo
        + " = " + (calcExpression.numberOne - calcExpression.numberTwo))
     } else {
@@ -43,7 +43,7 @@ class Subtraction(val chain: Chain) extends Chain {
 }
 class Multiplication(val chain: Chain) extends Chain {
   override def calculate(calcExpression: CalcExpression): Unit = {
-    if (calcExpression.operator.==('*')) {
+    if (calcExpression.operator == '*') {
       println(calcExpression.numberOne + " * " + calcExpression.numberTwo
         + " = " + (calcExpression.numberOne * calcExpression.numberTwo))
     } else {
@@ -53,7 +53,7 @@ class Multiplication(val chain: Chain) extends Chain {
 }
 class Division(val chain: Chain) extends Chain {
   override def calculate(calcExpression: CalcExpression): Unit = {
-    if (calcExpression.operator == ('/') && calcExpression.numberTwo != 0) {
+    if (calcExpression.operator == '/' && calcExpression.numberTwo != 0) {
       println(calcExpression.numberOne + " / " + calcExpression.numberTwo
         + " = " + (calcExpression.numberOne / calcExpression.numberTwo))
     } else if (chain != null) {
