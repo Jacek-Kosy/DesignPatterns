@@ -25,8 +25,10 @@ class Addition(val chain: Chain) extends Chain {
     if (calcExpression.operator == '+') {
       println(calcExpression.numberOne + " + " + calcExpression.numberTwo
         + " = " + (calcExpression.numberOne + calcExpression.numberTwo))
-    } else {
+    } else if (chain != null) {
       chain.calculate(calcExpression)
+    } else {
+      println("Calculator doesn't support this operation")
     }
   }
 }
@@ -36,8 +38,10 @@ class Subtraction(val chain: Chain) extends Chain {
     if (calcExpression.operator == '-') {
       println(calcExpression.numberOne + " - " + calcExpression.numberTwo
        + " = " + (calcExpression.numberOne - calcExpression.numberTwo))
-    } else {
+    } else if (chain != null) {
       chain.calculate(calcExpression)
+    } else {
+      println("Calculator doesn't support this operation")
     }
   }
 }
@@ -46,16 +50,22 @@ class Multiplication(val chain: Chain) extends Chain {
     if (calcExpression.operator == '*') {
       println(calcExpression.numberOne + " * " + calcExpression.numberTwo
         + " = " + (calcExpression.numberOne * calcExpression.numberTwo))
-    } else {
+    } else if (chain != null) {
       chain.calculate(calcExpression)
+    } else {
+      println("Calculator doesn't support this operation")
     }
   }
 }
 class Division(val chain: Chain) extends Chain {
   override def calculate(calcExpression: CalcExpression): Unit = {
-    if (calcExpression.operator == '/' && calcExpression.numberTwo != 0) {
-      println(calcExpression.numberOne + " / " + calcExpression.numberTwo
-        + " = " + (calcExpression.numberOne / calcExpression.numberTwo))
+    if (calcExpression.operator == '/') {
+      if (calcExpression.numberTwo != 0) {
+        println(calcExpression.numberOne + " / " + calcExpression.numberTwo
+          + " = " + (calcExpression.numberOne / calcExpression.numberTwo))
+      } else {
+        println("It's impossible to divide by zero!!")
+      }
     } else if (chain != null) {
       chain.calculate(calcExpression)
     } else {
