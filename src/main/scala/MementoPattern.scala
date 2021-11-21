@@ -26,11 +26,11 @@ trait Originator {
   def save() : Memento
 }
 trait Memento {
-  def restore()
+  def restore(): Unit
 }
 trait Handler {
-  def makeBackup(originator: Originator)
-  def undo()
+  def makeBackup(originator: Originator): Unit
+  def undo(): Unit
 }
 class GameMemento(game: Game,lives: Int, money: Double, level: Int, swordType: String) extends Memento {
   override def restore(): Unit = {
